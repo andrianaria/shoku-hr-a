@@ -26,7 +26,6 @@ npm run build
 npm run typecheck
 ```
 
-The demo includes source adapted from the existing Shoku HR payroll screens,
-which were developed with assistance from v0. The demo is licensed under
-[MIT](LICENSE). See [third-party notices](THIRD_PARTY_NOTICES.md) for adapted
-UI components.
+The demo includes source adapted from the existing Shoku HR payroll screens.
+It is licensed under [MIT](LICENSE). See
+[third-party notices](THIRD_PARTY_NOTICES.md) for adapted UI components.
