@@ -361,11 +361,9 @@ export default function PayrollPage() {
   const fetchComponentsForDetail = async (detailId: number, isThr: boolean = false) => {
     try {
       const endpoint = isThr ? `/api/thr/components/${detailId}` : `/api/payroll/components/${detailId}`
-      console.log("[v0] Fetching components from endpoint:", endpoint, "isThr:", isThr)
       const response = await fetch(endpoint)
-      const data = await response.json()
-      console.log("[v0] Components response:", response.ok, "status:", response.status, "data:", data)
       if (response.ok) {
+        const data = await response.json()
         // Map the API response to our SalaryComponent interface
         const mappedComponents = (data.components || []).map((comp: any) => ({
           component_id: comp.component_id,
@@ -377,13 +375,12 @@ export default function PayrollPage() {
           unit: comp.unit,
           calculation_type: comp.calculation_type,
         }))
-        console.log("[v0] Mapped components count:", mappedComponents.length)
         setDetailComponents(new Map(detailComponents).set(detailId, mappedComponents))
       } else {
-        console.error("[v0] Failed to fetch components:", data)
+        console.error("Failed to fetch payroll components:", response.status)
       }
-    } catch (error) {
-      console.error("[v0] Error fetching components:", error)
+    } catch {
+      console.error("Could not load payroll components")
     }
   }
 

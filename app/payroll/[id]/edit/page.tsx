@@ -456,8 +456,8 @@ export default function EditPayrollPage() {
           })
         }
       }
-    } catch (error) {
-      console.error("[v0] Error saving changes:", error)
+    } catch {
+      console.error("Could not save payroll changes")
       toast({
         title: "Gagal",
         description: "Perubahan gagal disimpan",
